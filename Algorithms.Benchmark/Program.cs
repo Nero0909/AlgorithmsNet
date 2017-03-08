@@ -13,7 +13,6 @@ namespace Algorithms.Benchmark
         static void Main(string[] args)
         {
             var stackSum = BenchmarkRunner.Run<StackBenchmark>();
-            var queueSum = 0;
         }
     }
 }
