@@ -11,7 +11,7 @@ namespace Algorithms.Std.Collections
 {
     public class ArrayStack<T> : IStack<T>
     {
-        private T[] innerArr;
+        private T[] _innerArr;
 
         public bool IsEmpty => Size == 0;
 
@@ -19,24 +19,24 @@ namespace Algorithms.Std.Collections
 
         public ArrayStack()
         {
-            innerArr = new T[4];
+            _innerArr = new T[4];
             Size = 0;
         }
 
         public ArrayStack(int capacity)
         {
-            innerArr = new T[capacity];
+            _innerArr = new T[capacity];
             Size = 0;
         }
 
         public void Push(T item)
         {
-            if (innerArr.Length == Size)
+            if (_innerArr.Length == Size)
             {
-                Resize(innerArr.Length * 2);
+                Resize(_innerArr.Length * 2);
             }
 
-            innerArr[Size++] = item;
+            _innerArr[Size++] = item;
         }
 
         public T Pop()
@@ -46,8 +46,8 @@ namespace Algorithms.Std.Collections
                 ThrowHelper.ThrowInvalidOperationException("Stack is empty.");
             }
 
-            var item = innerArr[--Size];
-            innerArr[Size] = default(T);
+            var item = _innerArr[--Size];
+            _innerArr[Size] = default(T);
             return item;
         }
 
@@ -63,14 +63,14 @@ namespace Algorithms.Std.Collections
 
         private IEnumerator<T> ReverseArrayIterator(int size)
         {
-            yield return innerArr[--size];
+            yield return _innerArr[--size];
         }
 
         private void Resize(int capacity)
         {
             var newArr = new T[capacity];
-            Array.Copy(innerArr, newArr, innerArr.Length);
-            innerArr = newArr;
+            Array.Copy(_innerArr, newArr, _innerArr.Length);
+            _innerArr = newArr;
         }
     }
 }
