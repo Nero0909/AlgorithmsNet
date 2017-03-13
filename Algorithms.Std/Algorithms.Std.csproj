@@ -45,6 +45,7 @@
     <Compile Include="Collections\ListQueue.cs" />
     <Compile Include="Collections\Node.cs" />
     <Compile Include="Collections\ListStack.cs" />
+    <Compile Include="Collections\RingBuffer.cs" />
     <Compile Include="Collections\SingleLinkedList.cs" />
     <Compile Include="ExpressionInterpreter\ExpressionContext.cs" />
     <Compile Include="ExpressionInterpreter\Operations\BinaryOperation.cs" />
@@ -54,9 +55,10 @@
     <Compile Include="Helpers\ThrowHelper.cs" />
     <Compile Include="Interfaces\ILinkedList.cs" />
     <Compile Include="Interfaces\IQueue.cs" />
+    <Compile Include="Interfaces\IRingBuffer.cs" />
     <Compile Include="Interfaces\IStack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tasks\QueueTasks.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

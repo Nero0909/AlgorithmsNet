@@ -66,11 +66,13 @@
     <Compile Include="Collections\CircleListQueueTests.cs" />
     <Compile Include="Collections\ListQueueTests.cs" />
     <Compile Include="Collections\ListStackTests.cs" />
+    <Compile Include="Collections\RingBufferTests.cs" />
     <Compile Include="Collections\SingleLinkedListTests.cs" />
     <Compile Include="ExpressionInterpreter\ExpressionInterpreterTests.cs" />
     <Compile Include="ExpressionInterpreter\Operations\BinaryOperationTests.cs" />
     <Compile Include="ExpressionInterpreter\Operations\UnaryOperationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tasks\QueueTasksTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

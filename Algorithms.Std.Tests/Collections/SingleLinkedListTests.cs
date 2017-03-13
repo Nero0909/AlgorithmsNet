@@ -108,11 +108,13 @@ namespace Algorithms.Std.Tests.Collections
             result.ShouldBe(max);
         }
 
-        [Test]
-        public void ShouldReverse()
+        [TestCase(0)]
+        [TestCase(1)]
+        [TestCase(2)]
+        [TestCase(10)]
+        public void ShouldReverse(int capacity)
         {
             // Given
-            var capacity = 10;
             var list = new SingleLinkedList<int>();
             var expectedList = Enumerable.Range(0, capacity).ToList();
 
@@ -138,11 +140,13 @@ namespace Algorithms.Std.Tests.Collections
             }
         }
 
-        [Test]
-        public void ShouldReverseRecursive()
+        [TestCase(0)]
+        [TestCase(1)]
+        [TestCase(2)]
+        [TestCase(10)]
+        public void ShouldReverseRecursive(int capacity)
         {
             // Given
-            var capacity = 10;
             var list = new SingleLinkedList<int>();
             var expectedList = Enumerable.Range(0, capacity).ToList();
 
