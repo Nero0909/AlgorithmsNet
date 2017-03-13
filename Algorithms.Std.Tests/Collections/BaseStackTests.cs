@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
-using Algorithms.Std.Collections;
 using Algorithms.Std.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using Shouldly;
 
 namespace Algorithms.Std.Tests.Collections
@@ -10,7 +10,7 @@ namespace Algorithms.Std.Tests.Collections
     [TestClass]
     public abstract class BaseStackTests
     {
-        [TestMethod]
+        [Test]
         public void ShouldPush()
         {
             // Given
@@ -39,7 +39,7 @@ namespace Algorithms.Std.Tests.Collections
             }
         }
 
-        [TestMethod]
+        [Test]
         public void ShouldPop()
         {
             // Given
@@ -56,7 +56,7 @@ namespace Algorithms.Std.Tests.Collections
             result.ShouldBe(expectedResult);
         }
 
-        [TestMethod]
+        [Test]
         public void ShouldThrowIfEmpty()
         {
             // Given

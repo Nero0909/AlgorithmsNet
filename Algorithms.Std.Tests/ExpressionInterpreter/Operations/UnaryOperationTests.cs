@@ -2,6 +2,7 @@
 using Algorithms.Std.ExpressionInterpreter;
 using Algorithms.Std.ExpressionInterpreter.Operations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using Shouldly;
 
 namespace Algorithms.Std.Tests.ExpressionInterpreter.Operations
@@ -9,7 +10,7 @@ namespace Algorithms.Std.Tests.ExpressionInterpreter.Operations
     [TestClass]
     public class UnaryOperationTests
     {
-        [TestMethod]
+        [Test]
         public void ShouldSqrt()
         {
             // Given
@@ -21,7 +22,7 @@ namespace Algorithms.Std.Tests.ExpressionInterpreter.Operations
 
             var expectedResult = Math.Sqrt(operand);
             // When
-            var result = operation.Calculate(context);
+            var result = operation.Evaluate(context);
 
             // Then
             result.ShouldBe(expectedResult);

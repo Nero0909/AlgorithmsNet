@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Algorithms.Std.Collections;
+using NUnit.Framework;
 using Algorithms.Std.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shouldly;
@@ -13,7 +11,7 @@ namespace Algorithms.Std.Tests.Collections
     [TestClass]
     public abstract class BaseQueueTests
     {
-        [TestMethod]
+        [Test]
         public void ShouldEnqueue()
         {
             // Given
@@ -40,7 +38,8 @@ namespace Algorithms.Std.Tests.Collections
                 queue.Size.ShouldBe(capacity);
             }
         }
-        [TestMethod]
+
+        [Test]
         public void ShouldDeque()
         {
             // Given
@@ -57,7 +56,23 @@ namespace Algorithms.Std.Tests.Collections
             result.ShouldBe(expectedResult);
         }
 
-        [TestMethod]
+        [Test]
+        public void ShouldDequeWithOneElement()
+        {
+            // Given
+            var expectedResult = "Result";
+            var queue = GetQueue<string>();
+
+            // When
+            queue.Enqueue(expectedResult);
+            var result = queue.Dequeue();
+
+            // Then
+            queue.Size.ShouldBe(0);
+            result.ShouldBe(expectedResult);
+        }
+
+        [Test]
         public void ShouldThrowIfEmpty()
         {
             // Given
