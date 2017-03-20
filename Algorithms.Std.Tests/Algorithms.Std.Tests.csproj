@@ -66,18 +66,27 @@
   <ItemGroup>
     <Compile Include="Algorithms\BinarySearchTests.cs" />
     <Compile Include="Algorithms\TwoSumsTest.cs" />
+    <Compile Include="Algorithms\UnionFind\CompressedFastUnionFindTests.cs" />
+    <Compile Include="Algorithms\UnionFind\FastUnionFindTests.cs" />
+    <Compile Include="Algorithms\UnionFind\UnionFastFindTests.cs" />
+    <Compile Include="Algorithms\UnionFind\UnionFindTestsBase.cs" />
+    <Compile Include="Algorithms\UnionFind\WeightedFastUnionFindTests.cs" />
     <Compile Include="Collections\ArrayStackTests.cs" />
     <Compile Include="Collections\BaseQueueTests.cs" />
     <Compile Include="Collections\BaseStackTests.cs" />
     <Compile Include="Collections\CircleListQueueTests.cs" />
     <Compile Include="Collections\ListQueueTests.cs" />
     <Compile Include="Collections\ListStackTests.cs" />
+    <Compile Include="Collections\RandomBagTests.cs" />
     <Compile Include="Collections\RingBufferTests.cs" />
     <Compile Include="Collections\SingleLinkedListTests.cs" />
     <Compile Include="ExpressionInterpreter\ExpressionInterpreterTests.cs" />
     <Compile Include="ExpressionInterpreter\Operations\BinaryOperationTests.cs" />
     <Compile Include="ExpressionInterpreter\Operations\UnaryOperationTests.cs" />
+    <Compile Include="Extensions\ArrayExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomTests.cs" />
+    <Compile Include="Tasks\BinarySearchTasksTests.cs" />
     <Compile Include="Tasks\QueueTasksTests.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +97,91 @@
       <Project>{d7d1106f-792c-4827-a5a0-2a917f80f46f}</Project>
       <Name>Algorithms.Std</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="..\TestData">
+      <Link>TestData</Link>
+    </Folder>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\TestData\1Kints.txt" />
+    <Content Include="..\TestData\2Kints.txt" />
+    <Content Include="..\TestData\4Kints.txt" />
+    <Content Include="..\TestData\4runs.bin" />
+    <Content Include="..\TestData\8Kints.txt" />
+    <Content Include="..\TestData\ababLZW.txt" />
+    <Content Include="..\TestData\abra.txt" />
+    <Content Include="..\TestData\abraLZW.txt" />
+    <Content Include="..\TestData\amino.csv" />
+    <Content Include="..\TestData\aminoI.csv" />
+    <Content Include="..\TestData\aminoI.txt" />
+    <Content Include="..\TestData\brownian.txt" />
+    <Content Include="..\TestData\cards.txt" />
+    <Content Include="..\TestData\diffusion.txt" />
+    <Content Include="..\TestData\DJIA.csv" />
+    <Content Include="..\TestData\ex1.txt" />
+    <Content Include="..\TestData\ex2.txt" />
+    <Content Include="..\TestData\ex3.txt" />
+    <Content Include="..\TestData\ex4.txt" />
+    <Content Include="..\TestData\genomeTiny.txt" />
+    <Content Include="..\TestData\genomeVirus.txt" />
+    <Content Include="..\TestData\in1.txt" />
+    <Content Include="..\TestData\in2.txt" />
+    <Content Include="..\TestData\ip.csv" />
+    <Content Include="..\TestData\jobs.txt" />
+    <Content Include="..\TestData\jobsPC.txt" />
+    <Content Include="..\TestData\kw1260.txt" />
+    <Content Include="..\TestData\largeDG.txt" />
+    <Content Include="..\TestData\largeEWD.txt" />
+    <Content Include="..\TestData\largeEWG.txt" />
+    <Content Include="..\TestData\largeG.txt" />
+    <Content Include="..\TestData\largeT.txt" />
+    <Content Include="..\TestData\largeUF.txt" />
+    <Content Include="..\TestData\largeW.txt" />
+    <Content Include="..\TestData\leipzig1M.txt" />
+    <Content Include="..\TestData\list.txt" />
+    <Content Include="..\TestData\m1.txt" />
+    <Content Include="..\TestData\m2.txt" />
+    <Content Include="..\TestData\m3.txt" />
+    <Content Include="..\TestData\mediumDG.txt" />
+    <Content Include="..\TestData\mediumEWD.txt" />
+    <Content Include="..\TestData\mediumEWG.txt" />
+    <Content Include="..\TestData\mediumG.txt" />
+    <Content Include="..\TestData\mediumUF.txt" />
+    <Content Include="..\TestData\medTale.txt" />
+    <Content Include="..\TestData\mobydick.txt" />
+    <Content Include="..\TestData\movies.txt" />
+    <Content Include="..\TestData\pi.txt" />
+    <Content Include="..\TestData\q32x48.bin" />
+    <Content Include="..\TestData\q64x96.bin" />
+    <Content Include="..\TestData\rates.txt" />
+    <Content Include="..\TestData\routes.txt" />
+    <Content Include="..\TestData\rs1423.txt" />
+    <Content Include="..\TestData\shells.txt" />
+    <Content Include="..\TestData\shellsST.txt" />
+    <Content Include="..\TestData\tale.txt" />
+    <Content Include="..\TestData\tiny.txt" />
+    <Content Include="..\TestData\tinyBatch.txt" />
+    <Content Include="..\TestData\tinyCG.txt" />
+    <Content Include="..\TestData\tinyDAG.txt" />
+    <Content Include="..\TestData\tinyDG.txt" />
+    <Content Include="..\TestData\tinyEWD.txt" />
+    <Content Include="..\TestData\tinyEWDAG.txt" />
+    <Content Include="..\TestData\tinyEWDn.txt" />
+    <Content Include="..\TestData\tinyEWDnc.txt" />
+    <Content Include="..\TestData\tinyEWG.txt" />
+    <Content Include="..\TestData\tinyFN.txt" />
+    <Content Include="..\TestData\tinyG.txt" />
+    <Content Include="..\TestData\tinyPQ.txt" />
+    <Content Include="..\TestData\tinyST.txt" />
+    <Content Include="..\TestData\tinyT.txt" />
+    <Content Include="..\TestData\tinyTale.txt" />
+    <Content Include="..\TestData\tinytinyTale.txt" />
+    <Content Include="..\TestData\tinyUF.txt" />
+    <Content Include="..\TestData\tinyW.txt" />
+    <Content Include="..\TestData\tobe.txt" />
+    <Content Include="..\TestData\UPC.csv" />
+    <Content Include="..\TestData\words3.txt" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

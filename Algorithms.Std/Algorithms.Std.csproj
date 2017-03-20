@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\MSTest.TestFramework.1.1.11\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
@@ -46,11 +49,17 @@
   <ItemGroup>
     <Compile Include="Algorithms\BinarySearch.cs" />
     <Compile Include="Algorithms\Pairs.cs" />
+    <Compile Include="Algorithms\UnionFind\CompressedFastUnionFind.cs" />
+    <Compile Include="Algorithms\UnionFind\Connection.cs" />
+    <Compile Include="Algorithms\UnionFind\FastUnionFind.cs" />
+    <Compile Include="Algorithms\UnionFind\UnionFastFind.cs" />
+    <Compile Include="Algorithms\UnionFind\WeightedFastUnionFind.cs" />
     <Compile Include="Collections\ArrayStack.cs" />
     <Compile Include="Collections\CircleListQueue.cs" />
     <Compile Include="Collections\ListQueue.cs" />
     <Compile Include="Collections\Node.cs" />
     <Compile Include="Collections\ListStack.cs" />
+    <Compile Include="Collections\RandomBag.cs" />
     <Compile Include="Collections\RingBuffer.cs" />
     <Compile Include="Collections\SingleLinkedList.cs" />
     <Compile Include="ExpressionInterpreter\ExpressionContext.cs" />
@@ -58,12 +67,17 @@
     <Compile Include="ExpressionInterpreter\ExpressionInterpreter.cs" />
     <Compile Include="ExpressionInterpreter\Operations\Operation.cs" />
     <Compile Include="ExpressionInterpreter\Operations\UnaryOperation.cs" />
+    <Compile Include="Extensions\ArrayExtensions.cs" />
     <Compile Include="Helpers\ThrowHelper.cs" />
     <Compile Include="Interfaces\ILinkedList.cs" />
     <Compile Include="Interfaces\IQueue.cs" />
+    <Compile Include="Interfaces\IRandomBag.cs" />
     <Compile Include="Interfaces\IRingBuffer.cs" />
     <Compile Include="Interfaces\IStack.cs" />
+    <Compile Include="Interfaces\IUnionFind.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Random.cs" />
+    <Compile Include="Tasks\BinarySearchTasks.cs" />
     <Compile Include="Tasks\QueueTasks.cs" />
   </ItemGroup>
   <ItemGroup>

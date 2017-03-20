@@ -8,5 +8,10 @@ namespace Algorithms.Std.Helpers
         {
             throw new InvalidOperationException(message);
         }
+
+        public static void ThrowInvalidArgumentException(string message)
+        {
+            throw new ArgumentException(message);
+        }
     }
 }

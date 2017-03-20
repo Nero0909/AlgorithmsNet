@@ -181,5 +181,23 @@ namespace Algorithms.Std.Tests.Algorithms
             // Then
             result.ShouldBe(expectedMax);
         }
+
+        [TestCase(-2, 1, 3, 10, 10, 6, 5)]
+        public void ShouldBitonicSearch(params int[] arr)
+        {
+            // Given
+            var actualList = new List<int>(arr.Length);
+            var expectedList = new[] {0, 1, 2, 3, 3, 5, 6};
+
+            // When
+            foreach (var item in arr)
+            {
+                actualList.Add(arr.BitonicSearch(item));
+            }
+
+            // Then
+            actualList.ShouldBe(expectedList);
+        }
+
     }
 }
