@@ -18,7 +18,6 @@ namespace Algorithms.Std.Collections
 
         public RandomBag() : this(4)
         {
-
         }
 
         public bool IsEmpty => _innerArr.Count == 0;

@@ -46,5 +46,19 @@ namespace Algorithms.Std.Tests.Collections
             // Then
             result.Length.ShouldBe(0);
         }
+
+        [Test]
+        public void ShouldAdd()
+        {
+            // Given
+            var operations = 50;
+            var bag = new RandomBag<int>();
+
+            // When
+            for (int i = 0; i < operations; i++)
+            {
+
+            }
+        }
     }
 }
