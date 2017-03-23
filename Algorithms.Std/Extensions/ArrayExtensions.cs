@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Algorithms.Std.Helpers;
 
@@ -42,6 +43,30 @@ namespace Algorithms.Std.Extensions
                 arr[i] = arr[r];
                 arr[r] = tmp;
             }
+        }
+
+        /// <summary>
+        /// Swap two element in list
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="i"></param>
+        /// <param name="j"></param>
+        /// <typeparam name="T"></typeparam>
+        public static void Swap<T>(this IList<T> arr, int i, int j)
+        {
+            if (arr == null)
+            {
+                throw new ArgumentNullException(nameof(arr));
+            }
+
+            if (i < 0 || i >= arr.Count || j < 0 || j >= arr.Count)
+            {
+                ThrowHelper.ThrowInvalidArgumentException($"Invalid indexes: {i}, {j}");
+            }
+
+            var tmp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = tmp;
         }
     }
 }

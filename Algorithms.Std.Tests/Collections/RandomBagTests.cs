@@ -55,10 +55,13 @@ namespace Algorithms.Std.Tests.Collections
             var bag = new RandomBag<int>();
 
             // When
-            for (int i = 0; i < operations; i++)
+            for (var i = 0; i < operations; i++)
             {
-
+                bag.Add(i);
             }
+
+            // Then
+            bag.Size.ShouldBe(operations);
         }
     }
 }

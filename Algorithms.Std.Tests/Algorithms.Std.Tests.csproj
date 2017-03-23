@@ -84,8 +84,12 @@
     <Compile Include="ExpressionInterpreter\Operations\BinaryOperationTests.cs" />
     <Compile Include="ExpressionInterpreter\Operations\UnaryOperationTests.cs" />
     <Compile Include="Extensions\ArrayExtensionsTests.cs" />
+    <Compile Include="Extensions\EnumerableExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomTests.cs" />
+    <Compile Include="Sort\InsertionTests.cs" />
+    <Compile Include="Sort\SelectionTests.cs" />
+    <Compile Include="Sort\SortBase.cs" />
     <Compile Include="Tasks\BinarySearchTasksTests.cs" />
     <Compile Include="Tasks\QueueTasksTests.cs" />
   </ItemGroup>
