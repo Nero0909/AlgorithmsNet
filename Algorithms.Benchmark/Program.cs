@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Algorithms.Benchmark.Algorithms;
 using Algorithms.Benchmark.Collections;
+using Algorithms.Benchmark.Sort;
 using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Running;
 
@@ -15,7 +16,8 @@ namespace Algorithms.Benchmark
         static void Main(string[] args)
         {
             //var stackSum = BenchmarkRunner.Run<StackBenchmark>();
-            var uf = BenchmarkRunner.Run<UnionFindBenchmarks>();
+            //var uf = BenchmarkRunner.Run<UnionFindBenchmarks>();
+            var sort = BenchmarkRunner.Run<RandomUniqueArrayBenchmark>();
         }
     }
 }

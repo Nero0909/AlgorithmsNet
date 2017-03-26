@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Algorithms.Std.Extensions;
@@ -54,7 +55,7 @@ namespace Algorithms.Std.Tests.Extensions
             shuffledArray.Shuffle(0, hi);
 
             // Then
-            for (var i=hi+1; i < capacity; i++)
+            for (var i = hi + 1; i < capacity; i++)
             {
                 shuffledArray[i].ShouldBe(arr[i]);
             }
@@ -75,53 +76,11 @@ namespace Algorithms.Std.Tests.Extensions
         }
 
         [Test]
-        public void ShouldSwap()
-        {
-            // Given
-            var arr = new[] {1, 2};
-
-            // When
-            arr.Swap(0, 1);
-
-            // Then
-            arr[0].ShouldBe(2);
-            arr[1].ShouldBe(1);
-        }
-
-        [Test]
-        public void ShouldSwapTheSameElement()
-        {
-            // Given
-            var arr = new[] {1};
-
-            // When
-            arr.Swap(0, 0);
-
-            // Then
-            arr[0].ShouldBe(1);
-        }
-
-        [TestCase(-1, 1, 10)]
-        [TestCase(11, 0, 10)]
-        [TestCase(0, -1, 10)]
-        [TestCase(0, 11, 10)]
-        public void ShouldThrowExceptionInSwapBecauseOfInvalidIndexes(int i, int j, int capacity)
-        {
-            // Given
-            var arr = Enumerable.Range(0, capacity).ToArray();
-            Action action = () => arr.Swap(i, j);
-
-            // Then
-            action.ShouldThrow<ArgumentException>();
-        }
-
-
-        [Test]
-        public void ShouldThrowExceptionInSwapBecauseOfNull()
+        public void ShouldThrowExceptionBecauseOfNull()
         {
             // Given
             IList<int> arr = null;
-            Action action = () => arr.Swap(0, 0);
+            Action action = () => arr.Shuffle();
 
             // Then
             action.ShouldThrow<ArgumentNullException>();

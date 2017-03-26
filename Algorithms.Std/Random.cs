@@ -21,7 +21,7 @@ namespace Algorithms.Std
         /// Ordinarily, you should call this method at most once per program.
         /// </summary>
         /// <param name="seed"></param>
-        static void SetSeed(int seed)
+        public static void SetSeed(int seed)
         {
             _seed = seed;
             _random = new System.Random(_seed);

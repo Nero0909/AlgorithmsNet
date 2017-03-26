@@ -79,6 +79,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Collections\StackBenchmark.cs" />
+    <Compile Include="Sort\RandomUniqueArrayBenchmark.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

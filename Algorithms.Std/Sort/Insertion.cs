@@ -25,12 +25,9 @@ namespace Algorithms.Std.Sort
         {
             for (var i = 1; i < arr.Count; i++)
             {
-                for (var j = i; j > 0; j--)
+                for (var j = i; j > 0 && ArrayHelper.Less(comparer, arr[j], arr[j-1]); j--)
                 {
-                    if (comparer.Compare(arr[j], arr[j-1]) < 0)
-                    {
-                        arr.Swap(j, j-1);
-                    }
+                    ArrayHelper.Swap(arr, j, j - 1);
                 }
             }
         }

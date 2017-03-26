@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using Algorithms.Std.Extensions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MiscUtil.Collections;
 
 namespace Algorithms.Std.Sort
 {
-    public static class Selection
+    [TestClass]
+    public static class Shell
     {
         public static void Sort<T>(IList<T> arr)
         {
@@ -23,19 +24,29 @@ namespace Algorithms.Std.Sort
 
         public static void Sort<TSource>(IList<TSource> arr, IComparer<TSource> comparer)
         {
-            for (var i = 0; i < arr.Count; i++)
+            var h = ComputeH(arr.Count);
+            while (h >= 1)
             {
-                var min = i;
-                for (var j = i+1; j < arr.Count; j++)
+                for (var i = h; i < arr.Count; i++)
                 {
-                    if (ArrayHelper.Less(comparer, arr[j], arr[min]))
+                    for (var j = i; j >= h && ArrayHelper.Less(comparer, arr[j], arr[j-h]); j -= h)
                     {
-                        min = j;
+                        ArrayHelper.Swap(arr, j, j - h);
                     }
                 }
-
-                ArrayHelper.Swap(arr, i, min);
+                h /= 3;
             }
+        }
+
+        private static int ComputeH(int n)
+        {
+            var h = 1;
+            while (h < n/3)
+            {
+                h = 3 * h + 1;
+            }
+
+            return h;
         }
     }
 }
