@@ -1,24 +1,21 @@
-﻿using System;
-using System.Linq;
-using Algorithms.Std.Extensions;
-using Algorithms.Std.Sort;
-using BenchmarkDotNet.Attributes;
-using Random = Algorithms.Std.Random;
-
-namespace Algorithms.Benchmark.Sort
+﻿namespace Algorithms.Benchmark.Sort
 {
+    using System.Linq;
+    using BenchmarkDotNet.Attributes;
     using BenchmarkDotNet.Attributes.Jobs;
+    using global::Algorithms.Std.Extensions;
+    using global::Algorithms.Std.Sort;
 
     [LegacyJitX64Job]
-    public class RandomUniqueArrayBenchmark
+    public class EqualKeysArrayBenchmark
     {
         private const int Capacity = 1000;
         private readonly int[] _testArray;
 
-        public RandomUniqueArrayBenchmark()
+        public EqualKeysArrayBenchmark()
         {
             //Random.SetSeed(DateTime.Now.Millisecond);
-            _testArray = Enumerable.Range(0, Capacity).ToArray();
+            _testArray = Enumerable.Repeat(0, Capacity / 2).Concat(Enumerable.Repeat(1, Capacity / 2)).ToArray();
             _testArray.Shuffle();
         }
 
@@ -48,13 +45,6 @@ namespace Algorithms.Benchmark.Sort
         {
             var arr = _testArray.ToArray();
             Shell.Sort(arr);
-        }
-
-        [Benchmark]
-        public void BCLSort()
-        {
-            var arr = _testArray.ToArray();
-            Array.Sort(arr);
         }
     }
 }

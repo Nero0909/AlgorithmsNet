@@ -80,6 +80,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Collections\StackBenchmark.cs" />
+    <Compile Include="Sort\EqualKeysArrayBenchmark.cs" />
     <Compile Include="Sort\RandomUniqueArrayBenchmark.cs" />
   </ItemGroup>
   <ItemGroup>

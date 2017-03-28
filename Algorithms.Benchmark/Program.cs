@@ -17,7 +17,8 @@ namespace Algorithms.Benchmark
         {
             //var stackSum = BenchmarkRunner.Run<StackBenchmark>();
             //var uf = BenchmarkRunner.Run<UnionFindBenchmarks>();
-            var sort = BenchmarkRunner.Run<RandomUniqueArrayBenchmark>();
+            //var sort = BenchmarkRunner.Run<RandomUniqueArrayBenchmark>();
+            var sort = BenchmarkRunner.Run<EqualKeysArrayBenchmark>();
         }
     }
 }
