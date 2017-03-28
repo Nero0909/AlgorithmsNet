@@ -6,6 +6,8 @@ using Shouldly;
 
 namespace Algorithms.Std.Tests.Algorithms
 {
+    using System;
+
     [TestClass]
     public class TwoSumsTest
     {
@@ -68,7 +70,7 @@ namespace Algorithms.Std.Tests.Algorithms
         public void ShouldFindPositiveNearestPair(params double[] arr)
         {
             // Given
-            var expectedResult = (0.0, 1.0);
+            var expectedResult = new Tuple<double, double>(0.0, 1.0);
 
             // When
             var result = arr.NearestPair();
@@ -82,7 +84,7 @@ namespace Algorithms.Std.Tests.Algorithms
         public void ShouldFindNegativeNearestPair(params double[] arr)
         {
             // Given
-            var expectedResult = (-1.0, -2.0);
+            var expectedResult = new Tuple<double, double>(-1.0, -2.0);
 
             // When
             var result = arr.NearestPair();
@@ -97,7 +99,7 @@ namespace Algorithms.Std.Tests.Algorithms
         public void ShouldFindMixedNearestPair(params double[] arr)
         {
             // Given
-            var expectedResult = (1.0, -2.0);
+            var expectedResult = new Tuple<double, double>(1.0, -2.0);
 
             // When
             var result = arr.NearestPair();

@@ -54,16 +54,16 @@ namespace Algorithms.Std.Algorithms
             return count;
         }
 
-        public static (double, double) NearestPair(this IList<double> arr)
+        public static Tuple<double, double> NearestPair(this IList<double> arr)
         {
             if (arr.Count == 0)
             {
-                return (0, 0);
+                return new Tuple<double, double>(0, 0);
             }
 
             if (arr.Count < 2)
             {
-                return (arr[0], arr[0]);
+                return new Tuple<double, double>(arr[0], arr[0]);
             }
 
             var firstMinIndex = 0;
@@ -94,8 +94,7 @@ namespace Algorithms.Std.Algorithms
                 secondMin = itemAbs;
                 secondMinIndex = i;
             }
-
-            return (arr[firstMinIndex], arr[secondMinIndex]);
+            return new Tuple<double, double>(arr[firstMinIndex], arr[secondMinIndex]);
         }
     }
 }

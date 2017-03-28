@@ -6,26 +6,24 @@ namespace Algorithms.Std.Tasks
     {
         public static int GetMinimumFloorSlow(int houseHeigh, int threshHold)
         {
-            var destoryed = true;
-            var left = 1;
+            var left = 0;
             var right = houseHeigh;
-            var curFloor = -1;
 
             while (left <= right)
             {
-                curFloor = left + (right - left) / 2;
+                var mid = left + (right - left) / 2;
 
-                if (curFloor >= threshHold)
+                if (mid >= threshHold)
                 {
-                    right = curFloor - 1;
+                    right = mid - 1;
                 }
                 else
                 {
-                    left = curFloor + 1;
+                    left = mid + 1;
                 }
             }
 
-            return curFloor;
+            return left;
         }
 
         public static int GetMinimumFloorFast(int houseHeigh, int threshHold)

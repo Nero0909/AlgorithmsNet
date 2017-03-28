@@ -9,6 +9,7 @@ namespace Algorithms.Std.Tests.Tasks
     public class BinarySearchTasksTests
     {
         [TestCase(80, 10)]
+        [TestCase(80, 11)]
         [TestCase(80, 80)]
         [TestCase(80, 1)]
         public void ShouldGetMinumumFloorSlow(int houseHeigh, int expectedResult)
@@ -21,6 +22,7 @@ namespace Algorithms.Std.Tests.Tasks
         }
 
         [TestCase(80, 10)]
+        [TestCase(80, 11)]
         [TestCase(80, 80)]
         [TestCase(80, 1)]
         public void ShouldGetMinumumFloorFast(int houseHeigh, int expectedResult)
