@@ -84,6 +84,7 @@
     <Compile Include="Random.cs" />
     <Compile Include="Sort\ArrayHelper.cs" />
     <Compile Include="Sort\Insertion.cs" />
+    <Compile Include="Sort\Merge.cs" />
     <Compile Include="Sort\Selection.cs" />
     <Compile Include="Sort\Shell.cs" />
     <Compile Include="Tasks\BinarySearchTasks.cs" />

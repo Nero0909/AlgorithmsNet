@@ -91,6 +91,7 @@
     <Compile Include="Sort\ArrayHelperTests.cs" />
     <Compile Include="Sort\InsertionOptimisedTests.cs" />
     <Compile Include="Sort\InsertionTests.cs" />
+    <Compile Include="Sort\MergeTests.cs" />
     <Compile Include="Sort\SelectionTests.cs" />
     <Compile Include="Sort\ShellTests.cs" />
     <Compile Include="Sort\SortBase.cs" />
