@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using MiscUtil.Collections;
 
-    public static class MergeBU
+    public class MergeNotStable
     {
         public static void Sort<TSource>(IList<TSource> arr)
         {
@@ -20,44 +20,45 @@
             Sort(arr, comparer);
         }
 
-
         public static void Sort<TSource>(IList<TSource> arr, IComparer<TSource> comparer)
         {
             var tmp = new TSource[arr.Count];
-            var N = arr.Count;
 
-            for (var sz = 1; sz < N; sz = sz + sz)
+            Sort(tmp, arr, comparer, 0, arr.Count-1);
+        }
+
+        private static void Sort<TSource>(IList<TSource> tmp, IList<TSource> src, IComparer<TSource> comparer, int lo, int hi)
+        {
+            if (hi <= lo)
             {
-                for (var lo = 0; lo < N - sz; lo += sz + sz)
-                {
-                    MergeInternal(tmp, arr, comparer, lo, lo + sz - 1, Math.Min(lo + sz + sz - 1, N - 1));
-                }
+                return;
             }
+
+            var mid = lo + (hi - lo) / 2;
+            Sort(tmp, src, comparer, lo, mid);
+            Sort(tmp, src, comparer, mid+ 1, hi);
+            MergeInternal(tmp, src, comparer, lo, mid, hi);
         }
 
         private static void MergeInternal<TSource>(IList<TSource> tmp, IList<TSource> src, IComparer<TSource> comparer, int lo, int mid, int hi)
         {
-            var i = lo;
-            var j = mid + 1;
-
-            for (var k = lo; k <= hi; k++)
+            for (var k = lo; k <= mid; k++)
             {
                 tmp[k] = src[k];
             }
 
+            for (var k = mid+1; k <= hi; k++)
+            {
+                tmp[k] = src[hi - k + mid + 1];
+            }
+
+            var i = lo;
+            var j = hi;
             for (var k = lo; k <= hi; k++)
             {
-                if (i > mid)
+                if (ArrayHelper.Less(comparer, tmp[j], tmp[i]))
                 {
-                    src[k] = tmp[j++];
-                }
-                else if (j > hi)
-                {
-                    src[k] = tmp[i++];
-                }
-                else if (ArrayHelper.Less(comparer, tmp[j], tmp[i]))
-                {
-                    src[k] = tmp[j++];
+                    src[k] = tmp[j--];
                 }
                 else
                 {

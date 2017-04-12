@@ -81,6 +81,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Collections\StackBenchmark.cs" />
     <Compile Include="Sort\EqualKeysArrayBenchmark.cs" />
+    <Compile Include="Sort\Merge\OrderedArrBenchmark.cs" />
+    <Compile Include="Sort\Merge\SimpleVsNotStableBenchmark.cs" />
+    <Compile Include="Sort\Merge\SimpleVsOptimisedBenchmark.cs" />
     <Compile Include="Sort\RandomUniqueArrayBenchmark.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -97,7 +100,6 @@
       <Name>Algorithms.Std</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="..\TestData\mediumUF.txt" />
     <Content Include="..\TestData\tinyUF.txt" />

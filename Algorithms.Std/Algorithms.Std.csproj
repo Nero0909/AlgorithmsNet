@@ -86,6 +86,9 @@
     <Compile Include="Sort\Insertion.cs" />
     <Compile Include="Sort\Merge.cs" />
     <Compile Include="Sort\MergeBU.cs" />
+    <Compile Include="Sort\MergeImproved.cs" />
+    <Compile Include="Sort\MergeNotStable.cs" />
+    <Compile Include="Sort\MergeOrderedArrImprovement.cs" />
     <Compile Include="Sort\Selection.cs" />
     <Compile Include="Sort\Shell.cs" />
     <Compile Include="Tasks\BinarySearchTasks.cs" />

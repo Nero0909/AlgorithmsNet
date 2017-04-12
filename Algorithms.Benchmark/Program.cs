@@ -11,6 +11,8 @@ using BenchmarkDotNet.Running;
 
 namespace Algorithms.Benchmark
 {
+    using global::Algorithms.Benchmark.Sort.Merge;
+
     class Program
     {
         static void Main(string[] args)
@@ -18,7 +20,10 @@ namespace Algorithms.Benchmark
             //var stackSum = BenchmarkRunner.Run<StackBenchmark>();
             //var uf = BenchmarkRunner.Run<UnionFindBenchmarks>();
             //var sort = BenchmarkRunner.Run<RandomUniqueArrayBenchmark>();
-            var sort = BenchmarkRunner.Run<EqualKeysArrayBenchmark>();
+            //var sort = BenchmarkRunner.Run<EqualKeysArrayBenchmark>();
+            //var sort = BenchmarkRunner.Run<OrderedArrBenchmark>();
+            //BenchmarkRunner.Run<SimpleVsNotStableBenchmark>();
+            BenchmarkRunner.Run<SimpleVsOptimisedBenchmark>();
         }
     }
 }

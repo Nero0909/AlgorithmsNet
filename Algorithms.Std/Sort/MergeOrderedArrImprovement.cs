@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using MiscUtil.Collections;
 
-    public static class MergeBU
+    public static class MergeOrderedArrImprovement
     {
         public static void Sort<TSource>(IList<TSource> arr)
         {
@@ -20,18 +20,28 @@
             Sort(arr, comparer);
         }
 
-
         public static void Sort<TSource>(IList<TSource> arr, IComparer<TSource> comparer)
         {
             var tmp = new TSource[arr.Count];
-            var N = arr.Count;
 
-            for (var sz = 1; sz < N; sz = sz + sz)
+            Sort(tmp, arr, comparer, 0, arr.Count-1);
+        }
+
+
+        private static void Sort<TSource>(IList<TSource> tmp, IList<TSource> src, IComparer<TSource> comparer, int lo, int hi)
+        {
+            if (hi <= lo)
             {
-                for (var lo = 0; lo < N - sz; lo += sz + sz)
-                {
-                    MergeInternal(tmp, arr, comparer, lo, lo + sz - 1, Math.Min(lo + sz + sz - 1, N - 1));
-                }
+                return;
+            }
+
+            var mid = lo + (hi - lo) / 2;
+            Sort(tmp, src, comparer, lo, mid);
+            Sort(tmp, src, comparer, mid+ 1, hi);
+
+            if (!ArrayHelper.Less(comparer, src[mid], src[mid+1]))
+            {
+                MergeInternal(tmp, src, comparer, lo, mid, hi);
             }
         }
 

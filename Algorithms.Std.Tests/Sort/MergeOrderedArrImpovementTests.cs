@@ -6,21 +6,21 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
-    internal sealed class MergeBUTests : SortBase
+    internal sealed class MergeOrderedArrImpovementTests : SortBase
     {
         protected override Action GetSortBySelector<TSource, TKey>(IList<TSource> arr, Func<TSource, TKey> keySelector)
         {
-            return () => MergeBU.Sort(arr, keySelector);
+            return () => MergeOrderedArrImprovement.Sort(arr, keySelector);
         }
 
         protected override Action GetSortByComparer<TSource>(IList<TSource> arr, IComparer<TSource> comparer)
         {
-            return () => MergeBU.Sort(arr, comparer);
+            return () => MergeOrderedArrImprovement.Sort(arr, comparer);
         }
 
         protected override Action GetSimpleSort<TSource>(IList<TSource> arr)
         {
-            return () => MergeBU.Sort(arr);
+            return () => MergeOrderedArrImprovement.Sort(arr);
         }
     }
 }

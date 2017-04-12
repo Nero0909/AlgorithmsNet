@@ -4,8 +4,10 @@
     using System.Collections.Generic;
     using MiscUtil.Collections;
 
-    public static class MergeBU
+    public static class MergeImproved
     {
+        private const int Threshold = 15;
+
         public static void Sort<TSource>(IList<TSource> arr)
         {
             var comparer = Comparer<TSource>.Default;
@@ -20,19 +22,42 @@
             Sort(arr, comparer);
         }
 
-
         public static void Sort<TSource>(IList<TSource> arr, IComparer<TSource> comparer)
         {
             var tmp = new TSource[arr.Count];
-            var N = arr.Count;
 
-            for (var sz = 1; sz < N; sz = sz + sz)
+            Sort(tmp, arr, comparer, 0, arr.Count-1);
+        }
+
+        private static void Sort<TSource>(IList<TSource> tmp, IList<TSource> src, IComparer<TSource> comparer, int lo, int hi)
+        {
+            if (hi <= lo)
             {
-                for (var lo = 0; lo < N - sz; lo += sz + sz)
+                return;
+            }
+
+            if (lo + hi <= Threshold)
+            {
+                for (var i = lo+1; i <= hi; i++)
                 {
-                    MergeInternal(tmp, arr, comparer, lo, lo + sz - 1, Math.Min(lo + sz + sz - 1, N - 1));
+                    for (var j = i; j > 0 && ArrayHelper.Less(comparer, src[j], src[j-1]); j--)
+                    {
+                        ArrayHelper.Swap(src, j, j - 1);
+                    }
                 }
             }
+            else
+            {
+                var mid = lo + (hi - lo) / 2;
+                Sort(tmp, src, comparer, lo, mid);
+                Sort(tmp, src, comparer, mid+ 1, hi);
+
+                if (!ArrayHelper.Less(comparer, src[mid], src[mid+1]))
+                {
+                    MergeInternal(tmp, src, comparer, lo, mid, hi);
+                }
+            }
+
         }
 
         private static void MergeInternal<TSource>(IList<TSource> tmp, IList<TSource> src, IComparer<TSource> comparer, int lo, int mid, int hi)

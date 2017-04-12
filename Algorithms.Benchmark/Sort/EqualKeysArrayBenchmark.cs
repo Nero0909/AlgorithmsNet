@@ -10,9 +10,10 @@
     public class EqualKeysArrayBenchmark
     {
         private const int Capacity = 1000;
-        private readonly int[] _testArray;
+        private int[] _testArray;
 
-        public EqualKeysArrayBenchmark()
+        [Setup]
+        public void SetupData()
         {
             //Random.SetSeed(DateTime.Now.Millisecond);
             _testArray = Enumerable.Repeat(0, Capacity / 2).Concat(Enumerable.Repeat(1, Capacity / 2)).ToArray();

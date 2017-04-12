@@ -13,9 +13,10 @@ namespace Algorithms.Benchmark.Sort
     public class RandomUniqueArrayBenchmark
     {
         private const int Capacity = 1000;
-        private readonly int[] _testArray;
+        private int[] _testArray;
 
-        public RandomUniqueArrayBenchmark()
+        [Setup]
+        public void SetupData()
         {
             //Random.SetSeed(DateTime.Now.Millisecond);
             _testArray = Enumerable.Range(0, Capacity).ToArray();
