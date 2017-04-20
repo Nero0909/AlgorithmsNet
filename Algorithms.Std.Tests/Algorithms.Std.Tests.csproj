@@ -76,6 +76,7 @@
     <Compile Include="Collections\BaseQueueTests.cs" />
     <Compile Include="Collections\BaseStackTests.cs" />
     <Compile Include="Collections\CircleListQueueTests.cs" />
+    <Compile Include="Collections\DoubleBufferTests\DoubleBufferTests.cs" />
     <Compile Include="Collections\ListQueueTests.cs" />
     <Compile Include="Collections\ListStackTests.cs" />
     <Compile Include="Collections\RandomBagTests.cs" />
@@ -111,7 +112,6 @@
       <Name>Algorithms.Std</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="..\TestData\mediumUF.txt" />
     <Content Include="..\TestData\tinyUF.txt" />

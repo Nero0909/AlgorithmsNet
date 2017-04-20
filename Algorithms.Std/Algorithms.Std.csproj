@@ -60,9 +60,11 @@
     <Compile Include="Algorithms\UnionFind\WeightedFastUnionFind.cs" />
     <Compile Include="Collections\ArrayStack.cs" />
     <Compile Include="Collections\CircleListQueue.cs" />
+    <Compile Include="Collections\DoubleBuffer\DoubleBuffer.cs" />
     <Compile Include="Collections\ListQueue.cs" />
     <Compile Include="Collections\Node.cs" />
     <Compile Include="Collections\ListStack.cs" />
+    <Compile Include="Collections\Pipeline.cs" />
     <Compile Include="Collections\RandomBag.cs" />
     <Compile Include="Collections\RingBuffer.cs" />
     <Compile Include="Collections\SingleLinkedList.cs" />
@@ -74,7 +76,9 @@
     <Compile Include="Extensions\ArrayExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtenstions.cs" />
     <Compile Include="Helpers\ThrowHelper.cs" />
+    <Compile Include="Interfaces\IDoubleBuffer.cs" />
     <Compile Include="Interfaces\ILinkedList.cs" />
+    <Compile Include="Interfaces\IPipeline.cs" />
     <Compile Include="Interfaces\IQueue.cs" />
     <Compile Include="Interfaces\IRandomBag.cs" />
     <Compile Include="Interfaces\IRingBuffer.cs" />
