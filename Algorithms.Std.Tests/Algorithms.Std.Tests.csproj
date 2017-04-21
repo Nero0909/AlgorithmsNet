@@ -79,6 +79,7 @@
     <Compile Include="Collections\DoubleBufferTests\DoubleBufferTests.cs" />
     <Compile Include="Collections\ListQueueTests.cs" />
     <Compile Include="Collections\ListStackTests.cs" />
+    <Compile Include="Collections\PipelineTests.cs" />
     <Compile Include="Collections\RandomBagTests.cs" />
     <Compile Include="Collections\RingBufferTests.cs" />
     <Compile Include="Collections\SingleLinkedListTests.cs" />

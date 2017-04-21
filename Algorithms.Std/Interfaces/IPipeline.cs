@@ -2,8 +2,10 @@
 {
     public interface IPipeline<T>
     {
-        T Push(int T);
+        T Push(T value);
 
         T this[int index] { get; set; }
+
+        int Size { get; }
     }
 }
