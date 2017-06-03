@@ -50,12 +50,7 @@ namespace Algorithms.Std.Collections
 
         private int GetNextIndex(int current)
         {
-            if (current + 1 == _capacity)
-            {
-                return 0;
-            }
-
-            return current + 1;
+            return (current + 1) % _capacity;
         }
 
         public IEnumerator<T> GetEnumerator()

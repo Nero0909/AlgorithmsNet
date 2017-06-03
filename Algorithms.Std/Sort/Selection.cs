@@ -28,13 +28,13 @@ namespace Algorithms.Std.Sort
                 var min = i;
                 for (var j = i+1; j < arr.Count; j++)
                 {
-                    if (ArrayHelper.Less(comparer, arr[j], arr[min]))
+                    if (comparer.Less(arr[j], arr[min]))
                     {
                         min = j;
                     }
                 }
 
-                ArrayHelper.Swap(arr, i, min);
+                arr.Swap(i, min);
             }
         }
     }

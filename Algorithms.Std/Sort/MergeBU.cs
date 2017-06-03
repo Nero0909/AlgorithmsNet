@@ -1,4 +1,6 @@
-﻿namespace Algorithms.Std.Sort
+﻿using Algorithms.Std.Extensions;
+
+namespace Algorithms.Std.Sort
 {
     using System;
     using System.Collections.Generic;
@@ -55,7 +57,7 @@
                 {
                     src[k] = tmp[i++];
                 }
-                else if (ArrayHelper.Less(comparer, tmp[j], tmp[i]))
+                else if (comparer.Less(tmp[j], tmp[i]))
                 {
                     src[k] = tmp[j++];
                 }

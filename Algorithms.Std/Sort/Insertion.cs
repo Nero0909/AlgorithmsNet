@@ -25,9 +25,9 @@ namespace Algorithms.Std.Sort
         {
             for (var i = 1; i < arr.Count; i++)
             {
-                for (var j = i; j > 0 && ArrayHelper.Less(comparer, arr[j], arr[j-1]); j--)
+                for (var j = i; j > 0 && comparer.Less(arr[j], arr[j-1]); j--)
                 {
-                    ArrayHelper.Swap(arr, j, j - 1);
+                    arr.Swap(j, j - 1);
                 }
             }
         }
@@ -59,9 +59,9 @@ namespace Algorithms.Std.Sort
             var exchanges = 0;
             for (var i = arr.Count - 1; i > 0 ; i--)
             {
-                if (ArrayHelper.Less(comparer, arr[i], arr[i-1]))
+                if (comparer.Less(arr[i], arr[i-1]))
                 {
-                    ArrayHelper.Swap(arr, i, i-1);
+                    arr.Swap(i, i-1);
                     exchanges++;
                 }
             }
@@ -75,7 +75,7 @@ namespace Algorithms.Std.Sort
             {
                 var tmp = arr[i];
                 var j = i;
-                while (ArrayHelper.Less(comparer, tmp, arr[j-1]))
+                while (comparer.Less(tmp, arr[j-1]))
                 {
                     arr[j] = arr[j - 1];
                     j--;

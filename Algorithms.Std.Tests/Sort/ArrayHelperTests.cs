@@ -18,7 +18,7 @@ namespace Algorithms.Std.Tests.Sort
             var arr = new[] {1, 2};
 
             // When
-            ArrayHelper.Swap(arr, 0, 1);
+            arr.Swap(0, 1);
 
             // Then
             arr[0].ShouldBe(2);
@@ -32,7 +32,7 @@ namespace Algorithms.Std.Tests.Sort
             var arr = new[] {1};
 
             // When
-            ArrayHelper.Swap(arr, 0, 0);
+            arr.Swap(0, 0);
 
             // Then
             arr[0].ShouldBe(1);
@@ -48,7 +48,7 @@ namespace Algorithms.Std.Tests.Sort
             var expectedResult = first < second;
 
             // When
-            var result = ArrayHelper.Less(comparer, first, second);
+            var result = comparer.Less(first, second);
 
             // Then
             result.ShouldBe(expectedResult);

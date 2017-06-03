@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Algorithms.Std.Extensions;
 using Algorithms.Std.Interfaces;
+using MiscUtil.Collections;
 
 namespace Algorithms.Std.Collections
 {
@@ -24,6 +26,19 @@ namespace Algorithms.Std.Collections
             var oldFirst = _first;
             _first = new Node<T>() { Item = item, Next = oldFirst };
             Size++;
+        }
+
+        public void AddAfter(Node<T> srcNode, Node<T> newNode)
+        {
+            var next = srcNode.Next;
+            srcNode.Next = newNode;
+            newNode.Next = next;
+        }
+        
+        public void AddAfter(Node<T> srcNode, T value)
+        {
+            var next = srcNode.Next;
+            srcNode.Next = new Node<T>(){Item = value, Next = next};
         }
 
         public bool Find(T item)
@@ -72,6 +87,88 @@ namespace Algorithms.Std.Collections
             _first = reverse;
         }
 
+        public void Sort()
+        {
+            Sort(Comparer<T>.Default);
+        }
+        
+        public void Sort<TKey>(Func<T, TKey> keySelector)
+        {
+            var comparer = ProjectionComparer<T>.Create(keySelector);
+            Sort(comparer);
+        }
+        
+        public void Sort(IComparer<T> comparer)
+        {
+            if (Size < 2)
+            {
+                return;
+            }
+
+            _first = SortInternal(_first, comparer, Size);
+        }
+
+        private Node<T> SortInternal(Node<T> node, IComparer<T> comparer, int size)
+        {
+            if (size < 2)
+            {
+                return node;
+            }
+
+            var leftSize = size / 2;
+            var rightSize = size / 2 + size % 2;
+            var oldHead = node;
+            var newHead = Split(node, size);
+
+            var left = SortInternal(oldHead, comparer, leftSize);
+            var right = SortInternal(newHead, comparer, rightSize);
+            return Merge(left, right, comparer);
+        }
+
+        private Node<T> Split(Node<T> node, int size)
+        {
+            var splitTail = node;
+            var counter = 0;
+
+            while (counter < size / 2)
+            {
+                splitTail = node;
+                node = node.Next;
+                counter++;
+            }
+            
+            var newHead = splitTail.Next;
+            splitTail.Next = null;
+            
+            return newHead;
+        }
+
+        private Node<T> Merge(Node<T> left, Node<T> right, IComparer<T> comp)
+        {
+            Node<T> result = null;
+
+            if (left == null)
+            {
+                return right;
+            }
+            if (right == null)
+            {
+                return left;
+            }
+            if (comp.Less(left.Item, right.Item))
+            {
+                result = left;
+                result.Next = Merge(left.Next, right, comp);
+            }
+            else
+            {
+                result = right;
+                result.Next = Merge(left, right.Next, comp);
+            }
+
+            return result;
+        }
+
         public void ReverseRecursive()
         {
             _first = ReverseRecursive(_first);
@@ -96,6 +193,8 @@ namespace Algorithms.Std.Collections
 
             return reverse;
         }
+        
+        
 
         public IEnumerator<T> GetEnumerator()
         {

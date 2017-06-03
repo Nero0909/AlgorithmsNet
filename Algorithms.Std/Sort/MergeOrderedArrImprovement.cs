@@ -1,4 +1,6 @@
-﻿namespace Algorithms.Std.Sort
+﻿using Algorithms.Std.Extensions;
+
+namespace Algorithms.Std.Sort
 {
     using System;
     using System.Collections.Generic;
@@ -39,7 +41,7 @@
             Sort(tmp, src, comparer, lo, mid);
             Sort(tmp, src, comparer, mid+ 1, hi);
 
-            if (!ArrayHelper.Less(comparer, src[mid], src[mid+1]))
+            if (!comparer.Less(src[mid], src[mid+1]))
             {
                 MergeInternal(tmp, src, comparer, lo, mid, hi);
             }
@@ -65,7 +67,7 @@
                 {
                     src[k] = tmp[i++];
                 }
-                else if (ArrayHelper.Less(comparer, tmp[j], tmp[i]))
+                else if (comparer.Less(tmp[j], tmp[i]))
                 {
                     src[k] = tmp[j++];
                 }

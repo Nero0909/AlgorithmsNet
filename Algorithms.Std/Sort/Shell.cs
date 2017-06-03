@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Algorithms.Std.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MiscUtil.Collections;
 
@@ -29,9 +30,9 @@ namespace Algorithms.Std.Sort
             {
                 for (var i = h; i < arr.Count; i++)
                 {
-                    for (var j = i; j >= h && ArrayHelper.Less(comparer, arr[j], arr[j-h]); j -= h)
+                    for (var j = i; j >= h && comparer.Less(arr[j], arr[j-h]); j -= h)
                     {
-                        ArrayHelper.Swap(arr, j, j - h);
+                        arr.Swap(j, j - h);
                     }
                 }
                 h /= 3;

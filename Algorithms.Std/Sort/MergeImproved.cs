@@ -1,4 +1,6 @@
-﻿namespace Algorithms.Std.Sort
+﻿using Algorithms.Std.Extensions;
+
+namespace Algorithms.Std.Sort
 {
     using System;
     using System.Collections.Generic;
@@ -40,9 +42,9 @@
             {
                 for (var i = lo+1; i <= hi; i++)
                 {
-                    for (var j = i; j > 0 && ArrayHelper.Less(comparer, src[j], src[j-1]); j--)
+                    for (var j = i; j > 0 && comparer.Less(src[j], src[j-1]); j--)
                     {
-                        ArrayHelper.Swap(src, j, j - 1);
+                        src.Swap(j, j - 1);
                     }
                 }
             }
@@ -52,12 +54,11 @@
                 Sort(tmp, src, comparer, lo, mid);
                 Sort(tmp, src, comparer, mid+ 1, hi);
 
-                if (!ArrayHelper.Less(comparer, src[mid], src[mid+1]))
+                if (!comparer.Less(src[mid], src[mid+1]))
                 {
                     MergeInternal(tmp, src, comparer, lo, mid, hi);
                 }
             }
-
         }
 
         private static void MergeInternal<TSource>(IList<TSource> tmp, IList<TSource> src, IComparer<TSource> comparer, int lo, int mid, int hi)
@@ -80,7 +81,7 @@
                 {
                     src[k] = tmp[i++];
                 }
-                else if (ArrayHelper.Less(comparer, tmp[j], tmp[i]))
+                else if (comparer.Less(tmp[j], tmp[i]))
                 {
                     src[k] = tmp[j++];
                 }

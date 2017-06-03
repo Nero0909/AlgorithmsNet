@@ -1,5 +1,8 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Algorithms.Std.Collections;
+using Algorithms.Std.Extensions;
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 using Shouldly;
@@ -24,18 +27,7 @@ namespace Algorithms.Std.Tests.Collections
             }
 
             // Then
-            linkedList.Size.ShouldBe(capacity);
-            using (var listIterator = expectedList.GetEnumerator())
-            {
-                listIterator.MoveNext();
-                foreach (var item in linkedList)
-                {
-                    item.ShouldBe(listIterator.Current);
-                    listIterator.MoveNext();
-                }
-
-                linkedList.Size.ShouldBe(capacity);
-            }
+            linkedList.ShouldBeEquivalentTo(expectedList, options => options.WithStrictOrdering());
         }
 
         [Test]
@@ -126,18 +118,7 @@ namespace Algorithms.Std.Tests.Collections
             list.Reverse();
 
             // Then
-            list.Size.ShouldBe(capacity);
-            using (var listIterator = expectedList.GetEnumerator())
-            {
-                listIterator.MoveNext();
-                foreach (var item in list)
-                {
-                    item.ShouldBe(listIterator.Current);
-                    listIterator.MoveNext();
-                }
-
-                list.Size.ShouldBe(capacity);
-            }
+            list.ShouldBeEquivalentTo(expectedList, options => options.WithStrictOrdering());
         }
 
         [TestCase(0)]
@@ -158,18 +139,53 @@ namespace Algorithms.Std.Tests.Collections
             list.ReverseRecursive();
 
             // Then
-            list.Size.ShouldBe(capacity);
-            using (var listIterator = expectedList.GetEnumerator())
-            {
-                listIterator.MoveNext();
-                foreach (var item in list)
-                {
-                    item.ShouldBe(listIterator.Current);
-                    listIterator.MoveNext();
-                }
+            list.ShouldBeEquivalentTo(expectedList, options => options.WithStrictOrdering());
+        }
 
-                list.Size.ShouldBe(capacity);
+        [Test]
+        public void ShouldSort()
+        {
+            // Given
+            var capacity = 50;
+            var list = new SingleLinkedList<int>();
+            var expectedList = Enumerable.Range(0, capacity).ToArray();
+            var randomNumbers = expectedList.ToArray();
+            randomNumbers.Shuffle();
+
+            foreach (var number in randomNumbers)
+            {
+                list.AddFirst(number);
             }
+            
+            // When
+            list.Sort();
+            
+            // Then
+            list.ShouldBeEquivalentTo(expectedList, options => options.WithStrictOrdering());
+        }
+        
+        [Test]
+        public void ShouldSortWithComparer()
+        {
+            // Given
+            var capacity = 50;
+            var list = new SingleLinkedList<KeyValuePair<int, string>>();
+            var expectedList = Enumerable.Range(0, capacity)
+                .Select(x => new KeyValuePair<int, string>(x, x.ToString()))
+                .ToArray();
+            var randomNumbers = expectedList.ToArray();
+            randomNumbers.Shuffle();
+
+            foreach (var number in randomNumbers)
+            {
+                list.AddFirst(number);
+            }
+            
+            // When
+            list.Sort(x => x.Key);
+            
+            // Then
+            list.ShouldBeEquivalentTo(expectedList, options => options.WithStrictOrdering());
         }
     }
 }
